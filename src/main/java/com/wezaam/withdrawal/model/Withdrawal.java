@@ -1,10 +1,6 @@
 package com.wezaam.withdrawal.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.Instant;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -18,6 +14,7 @@ public class Withdrawal {
     private Long transactionId;
     private Double amount;
     private Instant createdAt;
+    private Instant executeAt;
     private Long userId;
     private Long paymentMethodId;
     @Enumerated(EnumType.STRING)
@@ -69,6 +66,14 @@ public class Withdrawal {
 
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Instant getExecuteAt() {
+        return executeAt;
+    }
+
+    public void setExecuteAt(Instant executeAt) {
+        this.executeAt = executeAt;
     }
 
     public void setTransactionId(Long transactionId) {
